@@ -102,8 +102,9 @@ Piko.prototype.parse = function( source )
 	var status = $('body > form > font > table:nth-child(2) > tr:nth-child(8) > td:nth-child(3)').html().trim();
 	var currentEnergy = this.standardizeValue( $('body > form > font > table:nth-child(2) > tr:nth-child(4) > td:nth-child(3)').html().trim() );
 	var active = status === 'off' ? false : true;
-	
+	var modelName = this.standardizeValue($('body > form > table:nth-child(1) > tr:nth-child(2) > td:nth-child(2)').html().trim());
 	return {
+		inverterModel : { value: model },
 		totalEnergy: { value: totalEnergy, unit: 'kWh' },
 		dayEnergy: { value: dayEnergy, unit: 'kWh' },
 		currentEnergy: { value: currentEnergy, unit: 'W' },
